@@ -6,6 +6,7 @@
 - Empower you to define **routing** and **mediation rules** in a variety of **DSL**
   - A routing engine: enable to define routing rules (from what source a accept a message, determine how to process and send these message to other destinations)
 - Apache Camel uses **URIs** to work directly with **any kind of Transport or messaging model** such as HTTP, ActiveMQ, JMS, JBI, SCA, MINA or CXF, as well as pluggable Components and Data Format options.
+  - Comes with huge library of components
 
 ## Related Concepts
 ### EIP :Enterprise Integration Patterns
