@@ -1,5 +1,7 @@
 # Camel Overview
 
+What is camel?
+
 - It is a **integration framework** Based on **EIP** (<Enterprise Integration Patterns>)
   - Simplifying Integration
   - Concrete implementations of all the widely used EIPs 
@@ -8,7 +10,8 @@
 - Apache Camel uses **URIs** to work directly with **any kind of Transport or messaging model** such as HTTP, ActiveMQ, JMS, JBI, SCA, MINA or CXF, as well as pluggable Components and Data Format options.
   - Comes with huge library of components  
 
-The following picture show what camel looks like: 
+The following picture show what camel looks like:
+
 ![Alt text](pictures/camel-like.png?raw=true "What camel looks like")
 
 ## Related Concepts
