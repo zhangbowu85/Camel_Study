@@ -8,6 +8,7 @@
 - Apache Camel uses **URIs** to work directly with **any kind of Transport or messaging model** such as HTTP, ActiveMQ, JMS, JBI, SCA, MINA or CXF, as well as pluggable Components and Data Format options.
   - Comes with huge library of components  
   
+image:[pictures/camel-like.png]
 
 ## Related Concepts
 ### EIP :Enterprise Integration Patterns
