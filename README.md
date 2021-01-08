@@ -7,8 +7,9 @@
   - A routing engine: enable to define routing rules (from what source a accept a message, determine how to process and send these message to other destinations)
 - Apache Camel uses **URIs** to work directly with **any kind of Transport or messaging model** such as HTTP, ActiveMQ, JMS, JBI, SCA, MINA or CXF, as well as pluggable Components and Data Format options.
   - Comes with huge library of components  
-  
-image:[pictures/camel-like.png]
+
+The following picture show what camel looks like: 
+![Alt text](pictures/camel-like.png?raw=true "What camel looks like")
 
 ## Related Concepts
 ### EIP :Enterprise Integration Patterns
