@@ -1,8 +1,8 @@
 # Camel Overview
 
-## What the camel looks like? - Related Concepts
+## Related Concepts
 
-The following picture show what camel looks like:
+What camel looks like? The following picture show what camel looks like:
 
 ![Alt text](pictures/camel-like.png?raw=true "What camel looks like")
 
