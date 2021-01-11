@@ -69,18 +69,25 @@ Blueprint xml example:
 ```
 For more, see [DSL](https://camel.apache.org/manual/latest/dsl.html)
 
-##Then let's summarize what is camel?
+### URI
+Uniform Resource Identifier (URI) is a unique identifier used by web technologies. URIs may be used to identify anything, including real-world objects.
+
+Camel use URI to plug a component to connect to a external system, processor.
+
+Here are some example:
+|Component | What it does | URI |
+|---------|---------------|-----------|
+
+
+## Then let's summarize what is camel?
 
 - It is a **integration framework** Based on **EIP** (<Enterprise Integration Patterns>)
   - Simplifying Integration
   - Concrete implementations of all the widely used EIPs 
 - Empower you to define **routing** and **mediation rules** in a variety of **DSL**
-  - A routing engine: enable to define routing rules (from a source endpoint to other destination endpoint)
-  - Message perhaps be processed in some way (perhaps by an EIP when from source endpoint to destination endpoint)
 - Apache Camel uses **URIs** to work directly with **any kind of Transport or messaging model** such as HTTP, ActiveMQ, JMS, JBI, SCA, MINA or CXF, as well as pluggable Components and Data Format options.
   - Comes with huge library of components  
   - Camel connects to an endpoint through variou components
-  - The URI is used to define the endpoint access
 
 ## Architecture
 
