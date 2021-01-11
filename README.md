@@ -25,7 +25,8 @@ examples:
 A container to manage, run your routes
 ### DSL :domain-specific language
 like Java-based Fulent API, Spring or Blueprint XML configuration files) and so on.
-Java-base API:
+
+Java-base API example:
 ```
 from("file:src/data?noop=true")
             .choice()
@@ -34,7 +35,8 @@ from("file:src/data?noop=true")
                 .otherwise()
                     .to("file:target/messages/others");
 ```
-Spring XML configuration :
+
+Spring XML configuration example :
 ```
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -52,7 +54,7 @@ Spring XML configuration :
 
 </beans>
 ```
-Blueprint xml:
+Blueprint xml example:
 ```
 <blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0">
 
@@ -65,7 +67,9 @@ Blueprint xml:
 
 </blueprint>
 ```
-## What is camel?
+For more, see [DSL](https://camel.apache.org/manual/latest/dsl.html)
+
+##Then let's summarize what is camel?
 
 - It is a **integration framework** Based on **EIP** (<Enterprise Integration Patterns>)
   - Simplifying Integration
