@@ -7,7 +7,7 @@ The following picture show what camel looks like:
 ![Alt text](pictures/camel-like.png?raw=true "What camel looks like")
 
 ### Route
-move data from place A to place B
+move data from endpoint A to endpoint B
 ### Endpoint
 in Camel, an endpoint represents any other external system to Camel.
 ### Components
@@ -24,9 +24,47 @@ examples:
 ### Camel Context
 A container to manage, run your routes
 ### DSL :domain-specific language
+like Java-based Fulent API, Spring or Blueprint XML configuration files) and so on.
+Java-base API:
+```
+from("file:src/data?noop=true")
+            .choice()
+                .when(xpath("/person/city = 'London'"))
+                    .to("file:target/messages/uk")
+                .otherwise()
+                    .to("file:target/messages/others");
+```
+Spring XML configuration :
+```
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
+    ">
 
-, like Java-based Fulent API, Spring or Blueprint XML configuration files)
+  <camelContext id="camel-A" xmlns="http://camel.apache.org/schema/spring">
+    <route>
+      <from uri="seda:start"/>
+      <to uri="mock:result"/>
+    </route>
+  </camelContext>
 
+</beans>
+```
+Blueprint xml:
+```
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0">
+
+    <camelContext xmlns="http://camel.apache.org/schema/blueprint">
+        <route>
+            <from uri="timer:test" />
+            <to uri="log:test" />
+        </route>
+    </camelContext>
+
+</blueprint>
+```
 ## What is camel?
 
 - It is a **integration framework** Based on **EIP** (<Enterprise Integration Patterns>)
