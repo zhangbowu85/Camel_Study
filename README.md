@@ -94,9 +94,9 @@ direct|for joing your camel routes together|direct:xxxx
   - Comes with huge library of components  
   - Camel connects to an endpoint through variou components
             
-**So. Now you know that when you develop in Camel, you create routes that move data between endpoints, using components. **
+**So. Now you know that when you develop in Camel, you create routes that move data between endpoints, using components.**
 
-**Each route starts with a from, configured with a uri, that defines the endpoint that the data is coming from. **
+**Each route starts with a from, configured with a uri, that defines the endpoint that the data is coming from.**
 
 **A route can consist of multiple steps — such as transforming the data, or logging it. But a route usually ends with a to()
 instruction, which describes where the data will be delivered to.**
