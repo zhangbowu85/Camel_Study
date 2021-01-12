@@ -11,7 +11,7 @@ move data from endpoint A to endpoint B
 ### Endpoint
 in Camel, an endpoint represents any other external system to Camel.
 ### Components
-A component is simply like a plug that allow your to connect to an external system (such as a file on disk, a mailbox, or an app like Dropbox)
+A component is simply like a pluggable adapter that allow your to connect to an external system (such as a file on disk, a mailbox, or an app like Dropbox)
 ### EIP :Enterprise Integration Patterns
 An EIP defines a pattern according to which the system does special processing on messages.
 examples:
@@ -75,8 +75,13 @@ Uniform Resource Identifier (URI) is a unique identifier used by web technologie
 Camel use URI to plug a component to connect to a external system, processor.
 
 Here are some example:
-|Component | What it does | URI |
+|Component | Purpose | Endpoint URI |
 |---------|---------------|-----------|
+HTTP|for creating or consuming web sites|http:xxxxx
+File|for reading and writing fiels |file:xxxxx
+JMS|for reading and writing to message queues|jms:xxxx
+direct|for joing your camel routes together|direct:xxxx
+
 
 
 ## Then let's summarize what is camel?
