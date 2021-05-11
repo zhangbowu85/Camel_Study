@@ -106,3 +106,4 @@ instruction, which describes where the data will be delivered to.**
 ## Get started
 
 ## Examples
+[RabbitMQ Consumer and Producer](https://github.hpe.com/bo-wu-zhang/Camel-Study/examples/camel-rabbitmq-example)
