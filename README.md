@@ -107,3 +107,7 @@ instruction, which describes where the data will be delivered to.**
 
 ## Examples
 [RabbitMQ Consumer and Producer](https://github.hpe.com/bo-wu-zhang/Camel-Study/tree/master/examples/camel-rabbitmq-example)
+
+## How To
+### How to log exchange message through camel-log
+[`.to("log:logger-name?showAll=true&multiline=true")`]()
