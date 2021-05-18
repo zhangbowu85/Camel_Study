@@ -93,8 +93,9 @@ direct|for joing your camel routes together|direct:xxxx
 - Apache Camel uses **URIs** to work directly with **any kind of Transport or messaging model** such as HTTP, ActiveMQ, JMS, JBI, SCA, MINA or CXF, as well as pluggable Components and Data Format options.
   - Comes with huge library of components  
   - Camel connects to an endpoint through variou components
-            
-**So. Now you know that when you develop in Camel, you create routes that move data between endpoints, using components.**
+
+## So, when you develop with camel by:
+**Create routes that move data between endpoints, using components.**
 
 **Each route starts with a from, configured with a uri, that defines the endpoint that the data is coming from.**
 
