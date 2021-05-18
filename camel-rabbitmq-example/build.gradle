@@ -41,7 +41,7 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass = 'bw.study.examples.camel.App'
+    mainClass = 'bw.study.examples.camel.RabbitMQProducer'
 }
 
 tasks.named('test') {
