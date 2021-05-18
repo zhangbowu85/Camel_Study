@@ -122,6 +122,15 @@ instruction, which describes where the data will be delivered to.**
 [See what components provided for Camel](https://camel.apache.org/components/latest/index.html)
 
 ## Get started
+Firstly, download the Camel distribution and import libs into your project. Or, defined dependencies in your camel project or gradle project.
+
+Then to get started with Camel:
+1. Create a CamelContext.
+2. Optionally, configure components or endpoints.
+3. Add whatever routing rules you wish using the DSL and RouteBuilder or using XML DSL.
+4. Start the Camel context.
+
+Let's study through [examples](https://github.hpe.com/bo-wu-zhang/Camel-Study#examples)
 
 ## Examples
 [RabbitMQ Consumer and Producer](https://github.hpe.com/bo-wu-zhang/Camel-Study/tree/master/camel-rabbitmq-example)
