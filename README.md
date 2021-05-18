@@ -110,4 +110,4 @@ instruction, which describes where the data will be delivered to.**
 
 ## How To
 ### How to log exchange message through camel-log
-[`.to("log:logger-name?showAll=true&multiline=true")`](https://github.hpe.com/bo-wu-zhang/Camel-Study/blob/master/camel-rabbitmq-example/src/main/groovy/bw/study/examples/camel/RabbitMQConsumer.groovy)
+[`.to("log:logger-name?showAll=true&multiline=true")`](https://github.hpe.com/bo-wu-zhang/Camel-Study/blob/e7dcaf3f8ddd66f7f76be4a581b9689a89c0fbea/camel-rabbitmq-example/src/main/groovy/bw/study/examples/camel/RabbitMQConsumer.groovy#L30)
