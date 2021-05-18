@@ -106,8 +106,8 @@ instruction, which describes where the data will be delivered to.**
 ## Get started
 
 ## Examples
-[RabbitMQ Consumer and Producer](https://github.hpe.com/bo-wu-zhang/Camel-Study/tree/master/examples/camel-rabbitmq-example)
+[RabbitMQ Consumer and Producer](https://github.hpe.com/bo-wu-zhang/Camel-Study/camel-rabbitmq-example)
 
 ## How To
 ### How to log exchange message through camel-log
-[`.to("log:logger-name?showAll=true&multiline=true")`]()
+[`.to("log:logger-name?showAll=true&multiline=true")`](https://github.hpe.com/bo-wu-zhang/Camel-Study/blob/master/camel-rabbitmq-example/src/main/groovy/bw/study/examples/camel/RabbitMQConsumer.groovy)
