@@ -1,4 +1,11 @@
 # Camel Overview
+Content:
+- [Related Concepts](https://github.hpe.com/bo-wu-zhang/Camel-Study#related-concepts)
+- [What is Camel](https://github.hpe.com/bo-wu-zhang/Camel-Study#then-lets-summarize-what-is-camel)
+- [Why Camel](https://github.hpe.com/bo-wu-zhang/Camel-Study#why-camel)
+- [Get Started](https://github.hpe.com/bo-wu-zhang/Camel-Study#get-started)
+- [Examples](https://github.hpe.com/bo-wu-zhang/Camel-Study#examples)
+- [How To](https://github.hpe.com/bo-wu-zhang/Camel-Study#how-to)
 
 ## Related Concepts
 
@@ -72,7 +79,7 @@ For more, see [DSL](https://camel.apache.org/manual/latest/dsl.html)
 ### URI
 Uniform Resource Identifier (URI) is a unique identifier used by web technologies. URIs may be used to identify anything, including real-world objects.
 
-Camel use URI to plug a component to connect to a external system, processor.
+Camel use URI to plug a component to connect to an external system, processor.
 
 Here are some example:
 |Component | Purpose | Endpoint URI |
