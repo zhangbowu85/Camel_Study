@@ -86,6 +86,7 @@ direct|for joing your camel routes together|direct:xxxx
 
 ## Then let's summarize what is camel?
 
+### Description
 - It is a **integration framework** Based on **EIP** (<Enterprise Integration Patterns>)
   - Simplifying Integration
   - Concrete implementations of all the widely used EIPs 
@@ -94,7 +95,7 @@ direct|for joing your camel routes together|direct:xxxx
   - Comes with huge library of components  
   - Camel connects to an endpoint through variou components
 
-## So, when you develop with camel by:
+### So, when you develop with Camel, you are doing:
 **Create routes that move data between endpoints, using components.**
 
 **Each route starts with a from, configured with a uri, that defines the endpoint that the data is coming from.**
@@ -102,7 +103,16 @@ direct|for joing your camel routes together|direct:xxxx
 **A route can consist of multiple steps — such as transforming the data, or logging it. But a route usually ends with a to()
 instruction, which describes where the data will be delivered to.**
 
-## Architecture
+### Architecture
+![Alt text](pictures/Architecture.png?raw=true "Architecture")
+
+## Why camel
+- **Based on Enterprise Integration Patterns**: Camel supports most of the Enterprise Integration Patterns from the excellent book by Gregor Hohpe and Bobby Woolf, and newer integration patterns from microservice architectures to help you solve your integration problem by applying best practices out of the box.
+- **Runs Everywhere**: Apache Camel is standalone, and can be embedded as a library within Spring Boot, Quarkus, Application Servers, and in the clouds. Camel subprojects focus on making your work easy.
+- **Packed with Components**:  Packed with several hundred components that are used to access databases, message queues, APIs or basically anything under the sun. Helping you integrate with everything.
+
+### Components
+[See what components provided for Camel](https://camel.apache.org/components/latest/index.html)
 
 ## Get started
 
