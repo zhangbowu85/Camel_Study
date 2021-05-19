@@ -24,7 +24,7 @@ class JettyServer {
             it.setShutdownNowOnTimeout(true)
             it.setTimeout(1)
         }
-        camel.getGlobalOptions().put(Exchange.LOG_EIP_NAME, "bw.study.examples");
+        camel.getGlobalOptions().put(Exchange.LOG_EIP_NAME, "bw.study.examples")
         RouteBuilder.addRoutes(camel, {
             it
             .from("jetty:http://0.0.0.0:18080/bw/test/example")
@@ -34,7 +34,7 @@ class JettyServer {
             .process {
                 it.in.headers['CamelFileName'] = 'msg-' + Instant.now().toString() + '.txt'            }
             //.setHeader('CamelFileName').simple("msg-${date:now:yyyyMMddHHmmssSSS}.txt")
-            .to("file:receivedMessages?charset=utf-8")
+            .to("file:out/receivedMessages?charset=utf-8")
         })
         camel.addShutdownHook {
             sleep(60000)
