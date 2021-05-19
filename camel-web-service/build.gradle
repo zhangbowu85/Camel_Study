@@ -1,0 +1,27 @@
+plugins {
+    id 'groovy'
+
+    id 'application'
+}
+
+version 'unspecified'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.codehaus.groovy:groovy-all:3.0.7'
+
+    implementation platform('org.apache.camel:camel-bom:3.9.0')
+    implementation('org.apache.camel:camel-core')
+    implementation('org.apache.camel:camel-jetty')
+
+    implementation platform('org.apache.logging.log4j:log4j-bom:2.13.3')
+    implementation 'org.apache.logging.log4j:log4j-slf4j-impl'
+}
+
+application {
+    // Define the main class for the application.
+    mainClass = 'bw.study.examples.camel.JettyServer'
+}

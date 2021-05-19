@@ -9,3 +9,5 @@
 
 rootProject.name = 'camel-study'
 include('camel-rabbitmq-example')
+include 'camel-web-service'
+

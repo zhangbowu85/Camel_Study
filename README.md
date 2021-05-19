@@ -113,6 +113,8 @@ instruction, which describes where the data will be delivered to.**
 ### Architecture
 ![Alt text](pictures/Architecture.png?raw=true "Architecture")
 
+[See more about architecture](https://camel.apache.org/manual/latest/architecture.html)
+
 ## Why camel
 - **Based on Enterprise Integration Patterns**: Camel supports most of the Enterprise Integration Patterns from the excellent book by Gregor Hohpe and Bobby Woolf, and newer integration patterns from microservice architectures to help you solve your integration problem by applying best practices out of the box.
 - **Runs Everywhere**: Apache Camel is standalone, and can be embedded as a library within Spring Boot, Quarkus, Application Servers, and in the clouds. Camel subprojects focus on making your work easy.
@@ -133,6 +135,8 @@ Then to get started with Camel:
 Let's study through [examples](https://github.hpe.com/bo-wu-zhang/Camel-Study#examples)
 
 ## Examples
+[Camel Web Service](https://github.hpe.com/bo-wu-zhang/Camel-Study/tree/master/camel-web-service)
+
 [RabbitMQ Consumer and Producer](https://github.hpe.com/bo-wu-zhang/Camel-Study/tree/master/camel-rabbitmq-example)
 
 ## How To
