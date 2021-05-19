@@ -34,10 +34,10 @@ class RabbitMQProducer {
             .to("rabbitmq:mytest?addresses=localhost:5672&username=guest&password=guest")
         })
         camel.addShutdownHook {
-            sleep(60000)
             camel.shutdown()
         }
         camel.start()
-        Thread.sleep(70000)
+        Thread.sleep(300000)
+        camel.stop()
     }
 }

@@ -9,8 +9,6 @@ import org.apache.camel.CamelContext
 import org.apache.camel.Exchange
 import org.apache.camel.builder.RouteBuilder
 import org.apache.camel.impl.DefaultCamelContext
-
-import java.text.SimpleDateFormat
 import java.time.Instant
 
 @Slf4j
@@ -37,10 +35,10 @@ class JettyServer {
             .to("file:out/receivedMessages?charset=utf-8")
         })
         camel.addShutdownHook {
-            sleep(60000)
             camel.shutdown()
         }
         camel.start()
-        Thread.sleep(70000)
+        Thread.sleep(300000)
+        camel.stop()
     }
 }

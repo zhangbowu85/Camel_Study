@@ -30,10 +30,10 @@ class RabbitMQConsumer {
             .to("log:bw.study.examples?showAll=true&multiline=true")
         })
         camel.addShutdownHook {
-            sleep(60000)
             camel.shutdown()
         }
         camel.start()
-        Thread.sleep(70000)
+        Thread.sleep(300000)
+        camel.stop()
     }
 }
