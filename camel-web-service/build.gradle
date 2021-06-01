@@ -20,6 +20,7 @@ dependencies {
     implementation platform('org.apache.camel:camel-bom:3.9.0')
     implementation('org.apache.camel:camel-core')
     implementation('org.apache.camel:camel-jetty')
+    implementation('org.apache.camel:camel-http')
 
     implementation platform('org.apache.logging.log4j:log4j-bom:2.13.3')
     implementation 'org.apache.logging.log4j:log4j-slf4j-impl'
