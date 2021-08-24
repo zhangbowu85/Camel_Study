@@ -1,27 +1,50 @@
 # Camel Overview
 Content:
-- [Related Concepts](https://github.hpe.com/bo-wu-zhang/Camel-Study#related-concepts)
 - [What is Camel](https://github.hpe.com/bo-wu-zhang/Camel-Study#then-lets-summarize-what-is-camel)
+  - [Overview](https://github.hpe.com/bo-wu-zhang/Camel-Study#overview)
+  - [Features](https://github.hpe.com/bo-wu-zhang/Camel-Study#features)
+  - [Related Concepts](https://github.hpe.com/bo-wu-zhang/Camel-Study#related-concepts)
 - [Why Camel](https://github.hpe.com/bo-wu-zhang/Camel-Study#why-camel)
 - [Get Started](https://github.hpe.com/bo-wu-zhang/Camel-Study#get-started)
 - [Examples](https://github.hpe.com/bo-wu-zhang/Camel-Study#examples)
 - [How To](https://github.hpe.com/bo-wu-zhang/Camel-Study#how-to)
 
-## Related Concepts
+## What is Camel?
 
-Keywords:
-Integration Framework
-Routing Engine builder
+### Overview
 
+What camel looks like? The following pictures show what camel looks like:
 
-What camel looks like? The following picture show what camel looks like:
+![Alt text](pictures/integration-framework.png?raw=true "What is camel for")
 
 ![Alt text](pictures/camel-like.png?raw=true "What camel looks like")
+
+- Integration Framework 
+- Routing Engine builder
+- (Not an ESB product, because it doesn’t have a container or a reliable message bus)
+
+### Features
+- Routing and mediation engine
+- Extensive component library
+- Enterprise integration patterns (EIPs)
+- Domain-specific language (DSL)
+- Payload-agnostic router
+- Modular and pluggable architecture
+- Plain Old Java Object (POJO) model
+- Easy configuration(URI)
+- Automatic type converters
+- Lightweight core ideal for microservices (easy to embed or deploy anywhere you like) 
+- Cloud ready(many components for connecting with SaaS providers)
+- Test kit
+- Vibrant community
+
+## Related Concepts
 
 ### Route
 move data from endpoint A to endpoint B
 ### Endpoint
 in Camel, an endpoint represents any other external system to Camel.
+(you can think it is the end of a channel through which a system can send or receive messages)
 ### Components
 A component is simply like a pluggable adapter that allow your to connect to an external system (such as a file on disk, a mailbox, or an app like Dropbox)
 ### EIP :Enterprise Integration Patterns
@@ -82,7 +105,8 @@ Blueprint xml example:
 For more, see [DSL](https://camel.apache.org/manual/latest/dsl.html)
 
 ### URI
-Uniform Resource Identifier (URI) is a unique identifier used by web technologies. URIs may be used to identify anything, including real-world objects.
+Uniform Resource Identifier (URI) is a unique identifier used by web technologies. 
+URIs may be used to identify anything, including real-world objects.
 
 Camel use URI to plug a component to connect to an external system, processor.
 
@@ -94,7 +118,21 @@ File|for reading and writing fiels |file:xxxxx
 JMS|for reading and writing to message queues|jms:xxxx
 direct|for joing your camel routes together|direct:xxxx
 
+### Message and Exchange
+a Message is an object includes: Headers (map), attachment, body (by default object), Fault flag
 
+an Exchange is the container of message
+
+![Alt text](pictures/exchange.png?raw=true "Exchange")
+
+(message exchange patterns [MEP]: In-Only, In-Out)
+(Properties: like headers but they last for the duration of the entire exchange)
+
+### Producer and Consumer
+A producer is the Camel abstraction that refers to an entity capable of sending a message to an endpoint.
+
+A consumer is the service that receives messages produced by some external system, wraps them in an exchange, 
+and sends them to be processed. Consumers are the source of the exchanges being routed in Camel.
 
 ## Then let's summarize what is camel?
 
@@ -105,7 +143,9 @@ direct|for joing your camel routes together|direct:xxxx
 - Empower you to define **routing** and **mediation rules** in a variety of **DSL**
 - Apache Camel uses **URIs** to work directly with **any kind of Transport or messaging model** such as HTTP, ActiveMQ, JMS, JBI, SCA, MINA or CXF, as well as pluggable Components and Data Format options.
   - Comes with huge library of components  
-  - Camel connects to an endpoint through variou components
+  - Camel connects to an endpoint through various components
+  
+
 
 ### So, when you develop with Camel, you are doing:
 **Create routes that move data between endpoints, using components.**
@@ -127,6 +167,12 @@ instruction, which describes where the data will be delivered to.**
 
 ### Components
 [See what components provided for Camel](https://camel.apache.org/components/latest/index.html)
+
+
+### Learn more about each concrete concept
+
+[Routing]
+[Endpoints]
 
 ## Get started
 Firstly, download the Camel distribution and import libs into your project. Or, defined dependencies in your camel project or gradle project.
