@@ -29,8 +29,8 @@ class HTTPClient {
             .from("timer:sendMessage?period=60000&repeatCount=-1")
             .routeId('http.client')
             .transform().simple('Test request')
-            .setHeader(Exchange.HTTP_QUERY).constant('action=subscribe')
-            .setHeader(Exchange.HTTP_METHOD).constant('POST')
+            .setHeader(Exchange.HTTP_QUERY).constant('action=subscribe') // if you add setHeader HTTP_QUERY will make the request in GET method
+            .setHeader(Exchange.HTTP_METHOD).constant('POST') // so you need to set HTTP_METHOD explicitly
             .to("log:bw.study.examples?showAll=true&multiline=true")
             .to("http://localhost:18080/bw/test/example")
         })
