@@ -9,6 +9,11 @@ Content:
 
 ## Related Concepts
 
+Keywords:
+Integration Framework
+Routing Engine builder
+
+
 What camel looks like? The following picture show what camel looks like:
 
 ![Alt text](pictures/camel-like.png?raw=true "What camel looks like")
