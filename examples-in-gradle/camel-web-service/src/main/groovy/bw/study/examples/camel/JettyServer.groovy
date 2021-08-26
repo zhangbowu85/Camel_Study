@@ -30,12 +30,12 @@ class JettyServer {
             .convertBodyTo(java.lang.String)
             .to("log:bw.study.examples?showAll=true&multiline=true")
             .process {
-                it.in.headers['CamelFileName'] = 'msg-' + Instant.now().toString() + '.txt'            }
+                it.in.headers['CamelFileName'] = 'msg-' + Instant.now().getEpochSecond() + '.txt'            }
             //.setHeader('CamelFileName').simple("msg-${date:now:yyyyMMddHHmmssSSS}.txt")
-            .to("file:out/receivedMessages?charset=utf-8")
+            .to("file:build/tmp/receivedMessages?charset=utf-8")
         })
         camel.addShutdownHook {
-            camel.shutdown()
+            System.out.println('Camel exit!')
         }
         camel.start()
         Thread.sleep(300000)

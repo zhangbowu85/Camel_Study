@@ -35,7 +35,7 @@ class HTTPClient {
             .to("http://localhost:18080/bw/test/example")
         })
         camel.addShutdownHook {
-            camel.shutdown()
+            System.out.println("Exiting")
         }
         camel.start()
         Thread.sleep(300000)

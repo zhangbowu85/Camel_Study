@@ -34,7 +34,7 @@ class RabbitMQProducer {
             .to("rabbitmq:mytest?addresses=localhost:5672&username=guest&password=guest")
         })
         camel.addShutdownHook {
-            camel.shutdown()
+            System.out.println('Exiting')
         }
         camel.start()
         Thread.sleep(300000)

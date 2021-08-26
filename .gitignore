@@ -3,3 +3,6 @@
 
 # Ignore Gradle build output directory
 build
+/examples-in-maven/camel-example-spring/src/data/test.xml
+/examples-in-maven/camel-example-spring/src/data/test2.xml
+/examples-in-maven/camel-example-spring/src/data/test3.xml
