@@ -186,6 +186,23 @@ Then to get started with Camel:
 Let's study through [examples](https://github.hpe.com/bo-wu-zhang/Camel-Study#examples)
 
 ## Examples
+
+
+#### Data Transformation
+- Data transformation using EIPs and Java
+- Data transformation using components
+- Data transformation using data formats
+- Data transformation using templates
+- Data type transformation using Camel’s type-converter mechanism
+- Message transformation in component adapters
+
+
+#### Direct:<name>
+from("direct:start")): The Direct component provides direct invocation between a producer 
+and a consumer. It allows connectivity only from within Camel, so external systems 
+can’t send messages directly to it.
+
+
 [Camel Web Service](https://github.hpe.com/bo-wu-zhang/Camel-Study/tree/master/camel-web-service)
 
 [RabbitMQ Consumer and Producer](https://github.hpe.com/bo-wu-zhang/Camel-Study/tree/master/camel-rabbitmq-example)
