@@ -198,14 +198,14 @@ Then to get started with Camel:
 3. Add whatever routing rules you wish using the DSL and RouteBuilder or using XML DSL.
 4. Start the Camel context.
 
-Let's study through [examples](./Camel_Study#examples)
+Let's study through [examples](#examples)
 
 ## Examples
 
 [Camel Web Service](./examples-in-gradle/camel-web-service)
 
-[RabbitMQ Consumer and Producer](./tree/master/examples-in-gradle/camel-rabbitmq-example)
+[RabbitMQ Consumer and Producer](./examples-in-gradle/camel-rabbitmq-example)
 
 ## How To
 ### How to log exchange message through camel-log
-[`.to("log:logger-name?showAll=true&multiline=true")`](https://github.com/zhangbowu85/Camel_Study/blob/4c608ff0099a43b96a71662daa2b2b10c7697d71/examples-in-gradle/camel-rabbitmq-example/src/main/groovy/bw/study/examples/camel/RabbitMQConsumer.groovy#L30)
+[`.to("log:logger-name?showAll=true&multiline=true")`](blob/4c608ff0099a43b96a71662daa2b2b10c7697d71/examples-in-gradle/camel-rabbitmq-example/src/main/groovy/bw/study/examples/camel/RabbitMQConsumer.groovy#L30)
