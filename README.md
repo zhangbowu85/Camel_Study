@@ -202,9 +202,9 @@ Let's study through [examples](./Camel_Study#examples)
 
 ## Examples
 
-[Camel Web Service](./Camel_Study/tree/master/examples-in-gradle/camel-web-service)
+[Camel Web Service](./examples-in-gradle/camel-web-service)
 
-[RabbitMQ Consumer and Producer](https://github.com/zhangbowu85/Camel_Study/tree/master/examples-in-gradle/camel-rabbitmq-example)
+[RabbitMQ Consumer and Producer](./tree/master/examples-in-gradle/camel-rabbitmq-example)
 
 ## How To
 ### How to log exchange message through camel-log
