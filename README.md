@@ -2,8 +2,8 @@
 Content:
 - [What is Camel](README.md#what-is-camel)
   - [Overview](README.md#overview)
-  - [Features](https://github.com/zhangbowu85/Camel_Study#features)
-  - [Related Concepts](https://github.com/zhangbowu85/Camel_Study#related-concepts)
+  - [Features](#features)
+  - [Related Concepts](#related-concepts)
 - [Why Camel](https://github.com/zhangbowu85/Camel_Study#why-camel)
 - [Get Started](https://github.com/zhangbowu85/Camel_Study#get-started)
 - [Examples](https://github.com/zhangbowu85/Camel_Study#examples)
