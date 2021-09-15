@@ -171,22 +171,9 @@ instruction, which describes where the data will be delivered to.**
 
 ### Learn more about each concrete concept
 
-[Routing]
-[Endpoints]
+#### Routing
 
-## Get started
-Firstly, download the Camel distribution and import libs into your project. Or, defined dependencies in your camel project or gradle project.
-
-Then to get started with Camel:
-1. Create a CamelContext.
-2. Optionally, configure components or endpoints.
-3. Add whatever routing rules you wish using the DSL and RouteBuilder or using XML DSL.
-4. Start the Camel context.
-
-Let's study through [examples](https://github.hpe.com/bo-wu-zhang/Camel-Study#examples)
-
-## Examples
-
+#### Endpoints
 
 #### Data Transformation
 - Data transformation using EIPs and Java
@@ -202,11 +189,23 @@ from("direct:start")): The Direct component provides direct invocation between a
 and a consumer. It allows connectivity only from within Camel, so external systems 
 can’t send messages directly to it.
 
+## Get started
+Firstly, download the Camel distribution and import libs into your project. Or, defined dependencies in your camel project or gradle project.
 
-[Camel Web Service](https://github.hpe.com/bo-wu-zhang/Camel-Study/tree/master/camel-web-service)
+Then to get started with Camel:
+1. Create a CamelContext.
+2. Optionally, configure components or endpoints.
+3. Add whatever routing rules you wish using the DSL and RouteBuilder or using XML DSL.
+4. Start the Camel context.
 
-[RabbitMQ Consumer and Producer](https://github.hpe.com/bo-wu-zhang/Camel-Study/tree/master/camel-rabbitmq-example)
+Let's study through [examples](https://github.com/zhangbowu85/Camel_Study#examples)
+
+## Examples
+
+[Camel Web Service](https://github.com/zhangbowu85/Camel_Study/tree/master/examples-in-gradle/camel-web-service)
+
+[RabbitMQ Consumer and Producer](https://github.com/zhangbowu85/Camel_Study/tree/master/examples-in-gradle/camel-rabbitmq-example)
 
 ## How To
 ### How to log exchange message through camel-log
-[`.to("log:logger-name?showAll=true&multiline=true")`](https://github.hpe.com/bo-wu-zhang/Camel-Study/blob/e7dcaf3f8ddd66f7f76be4a581b9689a89c0fbea/camel-rabbitmq-example/src/main/groovy/bw/study/examples/camel/RabbitMQConsumer.groovy#L30)
+[`.to("log:logger-name?showAll=true&multiline=true")`](https://github.com/zhangbowu85/Camel_Study/blob/4c608ff0099a43b96a71662daa2b2b10c7697d71/examples-in-gradle/camel-rabbitmq-example/src/main/groovy/bw/study/examples/camel/RabbitMQConsumer.groovy#L30)
