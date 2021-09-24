@@ -183,6 +183,18 @@ instruction, which describes where the data will be delivered to.**
 - Data type transformation using Camel’s type-converter mechanism
 - Message transformation in component adapters
 
+##### Transforming XML
+- XSLT component—For transforming an XML payload into another format by using XSLT stylesheets
+- XML marshaling—For marshaling and unmarshaling objects to and from XML
+
+##### Transforming with data formats
+- marshal—For marshaling a message into another form, such as marshaling Java objects to XML, CSV, JSON, HL7, or other well-known data models
+- unmarshal—For performing the reverse operation, which turns data from well-known formats back into a message
+
+##### Transforming with templates
+- [Apache Velocity](http://camel.apache.org/velocity.html)
+- [Apache FreeMarker](http://camel.apache.org/freemarker.html)
+
 
 #### Direct:<name>
 from("direct:start")): The Direct component provides direct invocation between a producer 
