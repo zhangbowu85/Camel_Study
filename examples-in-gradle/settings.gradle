@@ -10,4 +10,5 @@
 rootProject.name = 'example-in-gradle'
 include('camel-rabbitmq-example')
 include 'camel-web-service'
+include 'camel-snmp'
 
