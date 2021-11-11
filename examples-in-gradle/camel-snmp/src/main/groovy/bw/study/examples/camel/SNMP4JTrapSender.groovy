@@ -3,9 +3,11 @@ package bw.study.examples.camel
 import groovy.util.logging.Log4j2
 import groovy.util.logging.Slf4j
 import org.snmp4j.CommunityTarget
+import org.snmp4j.MessageDispatcherImpl
 import org.snmp4j.PDU
 import org.snmp4j.Snmp
 import org.snmp4j.TransportMapping
+import org.snmp4j.event.ResponseEvent
 import org.snmp4j.mp.MPv3
 import org.snmp4j.mp.SnmpConstants
 import org.snmp4j.security.SecurityModels
@@ -20,6 +22,8 @@ import java.time.Instant
 class SNMP4JTrapSender {
 
     public static void main(args) {
+
+        System.out.println(MessageDispatcherImpl.class)
 
         Snmp snmp = null;
         TransportMapping<? extends Address> transport = null;
@@ -46,10 +50,12 @@ class SNMP4JTrapSender {
             CommunityTarget target = new CommunityTarget();
             target.setCommunity(new OctetString('public'));
             target.setVersion(SnmpConstants.version2c)
-            target.setAddress(new TcpAddress('localhost/10162'))
+            target.setAddress(new TcpAddress('10.47.112.135/10162'))
             target.setRetries(2)
             target.setTimeout(5000)
-            snmp.send(trap, target);
+            ResponseEvent event = snmp.send(trap, target);
+            System.out.println(event.toString())
+
         } finally {
             try {
                 transport.close();

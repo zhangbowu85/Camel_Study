@@ -5,9 +5,12 @@ package bw.study.examples.camel
 
 import groovy.util.logging.Slf4j
 import org.apache.camel.CamelContext
+import org.apache.camel.Endpoint
 import org.apache.camel.Exchange
 import org.apache.camel.ExchangePattern
 import org.apache.camel.builder.RouteBuilder
+import org.apache.camel.component.snmp.SnmpComponent
+import org.apache.camel.component.snmp.SnmpEndpoint
 import org.apache.camel.impl.DefaultCamelContext
 import org.apache.camel.builder.EndpointProducerBuilder
 import org.snmp4j.PDU
@@ -53,10 +56,10 @@ class SnmpAgent {
                             it.getIn().setBody(trap)
                         }
                         .to("log:bw.study.examples?showAll=true&multiline=true")
-                        .to("snmp:localhost:10162?protocol=tcp&type=TRAP" +
-                                "&snmpVersion=${SnmpConstants.version2c}" +
-                                "&snmpCommunity=public" +
-                                "&timeout=5000")
+                        .to("snmp:10.47.112.135:10162?protocol=tcp&type=TRAP" +
+                                "&snmpVersion=${SnmpConstants.version2c}"  +
+                                "&timeout=5000" +
+                                "&retries=5")
 
                         .to("log:bw.study.examples?showAll=true&multiline=true")
             }
