@@ -1,17 +1,17 @@
-# **Camel Overview**
+# Camel Overview
 Content:
-- [What is Camel](README.md#what-is-camel)
-  - [Overview](README.md#overview)
-  - [Features](#features)
-  - [Related Concepts](#related-concepts)
-- [Why Camel](https://github.com/zhangbowu85/Camel_Study#why-camel)
-- [Get Started](https://github.com/zhangbowu85/Camel_Study#get-started)
-- [Examples](https://github.com/zhangbowu85/Camel_Study#examples)
-- [How To](https://github.com/zhangbowu85/Camel_Study#how-to)
+- [What is Camel](https://github.hpe.com/bo-wu-zhang/Camel-Study#then-lets-summarize-what-is-camel)
+  - [Overview](https://github.hpe.com/bo-wu-zhang/Camel-Study#overview)
+  - [Features](https://github.hpe.com/bo-wu-zhang/Camel-Study#features)
+  - [Related Concepts](https://github.hpe.com/bo-wu-zhang/Camel-Study#related-concepts)
+- [Why Camel](https://github.hpe.com/bo-wu-zhang/Camel-Study#why-camel)
+- [Get Started](https://github.hpe.com/bo-wu-zhang/Camel-Study#get-started)
+- [Examples](https://github.hpe.com/bo-wu-zhang/Camel-Study#examples)
+- [How To](https://github.hpe.com/bo-wu-zhang/Camel-Study#how-to)
 
-## **What is Camel?**
+## What is Camel?
 
-#### **Overview**
+### Overview
 
 What camel looks like? The following pictures show what camel looks like:
 
@@ -23,7 +23,7 @@ What camel looks like? The following pictures show what camel looks like:
 - Routing Engine builder
 - (Not an ESB product, because it doesn’t have a container or a reliable message bus)
 
-#### **Features**
+### Features
 - Routing and mediation engine
 - Extensive component library
 - Enterprise integration patterns (EIPs)
@@ -38,16 +38,16 @@ What camel looks like? The following pictures show what camel looks like:
 - Test kit
 - Vibrant community
 
-#### **Related Concepts**
+## Related Concepts
 
-##### Route
+### Route
 move data from endpoint A to endpoint B
-##### Endpoint
+### Endpoint
 in Camel, an endpoint represents any other external system to Camel.
 (you can think it is the end of a channel through which a system can send or receive messages)
-##### Components
+### Components
 A component is simply like a pluggable adapter that allow your to connect to an external system (such as a file on disk, a mailbox, or an app like Dropbox)
-##### EIP :Enterprise Integration Patterns
+### EIP :Enterprise Integration Patterns
 An EIP defines a pattern according to which the system does special processing on messages.
 examples:
 |EIP name | What it does | java syntax|
@@ -56,9 +56,9 @@ examples:
 |Aggregator|Combines several messages into one message|.aggregate()
 |Log|Writes a simple log message|.log()
 |Marshal|Converts an object into a text or binary format|.marshal()
-##### Camel Context
+### Camel Context
 A container to manage, run your routes
-##### DSL :domain-specific language
+### DSL :domain-specific language
 like Java-based Fulent API, Spring or Blueprint XML configuration files) and so on.
 
 Java-base API example:
@@ -104,7 +104,7 @@ Blueprint xml example:
 ```
 For more, see [DSL](https://camel.apache.org/manual/latest/dsl.html)
 
-##### URI
+### URI
 Uniform Resource Identifier (URI) is a unique identifier used by web technologies. 
 URIs may be used to identify anything, including real-world objects.
 
@@ -118,7 +118,7 @@ File|for reading and writing fiels |file:xxxxx
 JMS|for reading and writing to message queues|jms:xxxx
 direct|for joing your camel routes together|direct:xxxx
 
-##### Message and Exchange
+### Message and Exchange
 a Message is an object includes: Headers (map), attachment, body (by default object), Fault flag
 
 an Exchange is the container of message
@@ -128,15 +128,15 @@ an Exchange is the container of message
 (message exchange patterns [MEP]: In-Only, In-Out)
 (Properties: like headers but they last for the duration of the entire exchange)
 
-##### Producer and Consumer
+### Producer and Consumer
 A producer is the Camel abstraction that refers to an entity capable of sending a message to an endpoint.
 
 A consumer is the service that receives messages produced by some external system, wraps them in an exchange, 
 and sends them to be processed. Consumers are the source of the exchanges being routed in Camel.
 
-#### **Then let's summarize what is camel?**
+## Then let's summarize what is camel?
 
-##### Description
+### Description
 - It is a **integration framework** Based on **EIP** (<Enterprise Integration Patterns>)
   - Simplifying Integration
   - Concrete implementations of all the widely used EIPs 
@@ -147,7 +147,7 @@ and sends them to be processed. Consumers are the source of the exchanges being 
   
 
 
-##### So, when you develop with Camel, you are doing:
+### So, when you develop with Camel, you are doing:
 **Create routes that move data between endpoints, using components.**
 
 **Each route starts with a from, configured with a uri, that defines the endpoint that the data is coming from.**
@@ -155,12 +155,12 @@ and sends them to be processed. Consumers are the source of the exchanges being 
 **A route can consist of multiple steps — such as transforming the data, or logging it. But a route usually ends with a to()
 instruction, which describes where the data will be delivered to.**
 
-##### Architecture
+### Architecture
 ![Alt text](pictures/Architecture.png?raw=true "Architecture")
 
 [See more about architecture](https://camel.apache.org/manual/latest/architecture.html)
 
-## **Why camel**
+## Why camel
 - **Based on Enterprise Integration Patterns**: Camel supports most of the Enterprise Integration Patterns from the excellent book by Gregor Hohpe and Bobby Woolf, and newer integration patterns from microservice architectures to help you solve your integration problem by applying best practices out of the box.
 - **Runs Everywhere**: Apache Camel is standalone, and can be embedded as a library within Spring Boot, Quarkus, Application Servers, and in the clouds. Camel subprojects focus on making your work easy.
 - **Packed with Components**:  Packed with several hundred components that are used to access databases, message queues, APIs or basically anything under the sun. Helping you integrate with everything.
@@ -183,18 +183,6 @@ instruction, which describes where the data will be delivered to.**
 - Data type transformation using Camel’s type-converter mechanism
 - Message transformation in component adapters
 
-##### Transforming XML
-- XSLT component—For transforming an XML payload into another format by using XSLT stylesheets
-- XML marshaling—For marshaling and unmarshaling objects to and from XML
-
-##### Transforming with data formats
-- marshal—For marshaling a message into another form, such as marshaling Java objects to XML, CSV, JSON, HL7, or other well-known data models
-- unmarshal—For performing the reverse operation, which turns data from well-known formats back into a message
-
-##### Transforming with templates
-- [Apache Velocity](http://camel.apache.org/velocity.html)
-- [Apache FreeMarker](http://camel.apache.org/freemarker.html)
-
 
 #### Direct:<name>
 from("direct:start")): The Direct component provides direct invocation between a producer 
@@ -210,14 +198,14 @@ Then to get started with Camel:
 3. Add whatever routing rules you wish using the DSL and RouteBuilder or using XML DSL.
 4. Start the Camel context.
 
-Let's study through [examples](#examples)
+Let's study through [examples](https://github.com/zhangbowu85/Camel_Study#examples)
 
 ## Examples
 
-[Camel Web Service](./examples-in-gradle/camel-web-service)
+[Camel Web Service](https://github.com/zhangbowu85/Camel_Study/tree/master/examples-in-gradle/camel-web-service)
 
-[RabbitMQ Consumer and Producer](./examples-in-gradle/camel-rabbitmq-example)
+[RabbitMQ Consumer and Producer](https://github.com/zhangbowu85/Camel_Study/tree/master/examples-in-gradle/camel-rabbitmq-example)
 
 ## How To
 ### How to log exchange message through camel-log
-[`.to("log:logger-name?showAll=true&multiline=true")`](blob/4c608ff0099a43b96a71662daa2b2b10c7697d71/examples-in-gradle/camel-rabbitmq-example/src/main/groovy/bw/study/examples/camel/RabbitMQConsumer.groovy#L30)
+[`.to("log:logger-name?showAll=true&multiline=true")`](https://github.com/zhangbowu85/Camel_Study/blob/4c608ff0099a43b96a71662daa2b2b10c7697d71/examples-in-gradle/camel-rabbitmq-example/src/main/groovy/bw/study/examples/camel/RabbitMQConsumer.groovy#L30)
