@@ -7,13 +7,12 @@ import groovy.util.logging.Slf4j
 import org.apache.camel.CamelContext
 import org.apache.camel.Exchange
 import org.apache.camel.builder.RouteBuilder
+import org.apache.camel.component.http.HttpComponent
 import org.apache.camel.impl.DefaultCamelContext
-import org.apache.http.protocol.HTTP
-
-import java.time.Instant
+import org.apache.http.conn.ssl.NoopHostnameVerifier
 
 @Slf4j
-class HTTPClient {
+class CamelHTTPClient {
 
     static void main(String[] args) {
         int count =1
@@ -24,15 +23,18 @@ class HTTPClient {
             it.setTimeout(1)
         }
         camel.getGlobalOptions().put(Exchange.LOG_EIP_NAME, "bw.study.examples")
+        HttpComponent httpComponent = camel.getComponent('https', HttpComponent.class)
+        httpComponent.setSslContextParameters(MySSLContext.initClientSSLContext())
+        httpComponent.setX509HostnameVerifier(new NoopHostnameVerifier())
         RouteBuilder.addRoutes(camel, {
             it
-            .from("timer:sendMessage?period=60000&repeatCount=-1")
+            .from("timer:sendMessage?period=15000&repeatCount=-1")
             .routeId('http.client')
             .transform().simple('Test request')
             .setHeader(Exchange.HTTP_QUERY).constant('action=subscribe') // if you add setHeader HTTP_QUERY will make the request in GET method
             .setHeader(Exchange.HTTP_METHOD).constant('POST') // so you need to set HTTP_METHOD explicitly
             .to("log:bw.study.examples?showAll=true&multiline=true")
-            .to("http://localhost:18080/bw/test/example")
+            .to("https://localhost:18080/bw/test/example")
         })
         camel.addShutdownHook {
             System.out.println("Exiting")

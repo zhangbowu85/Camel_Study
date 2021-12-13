@@ -1,6 +1,7 @@
 package bw.study.examples.camel
 
-
+import groovy.json.JsonParser
+import groovy.json.JsonSlurper
 import org.apache.camel.Exchange
 import org.apache.camel.Processor
 import org.snmp4j.PDU
@@ -27,5 +28,8 @@ class PDUMarshaller implements Processor {
         trap.add(new VariableBinding(new OID('1.3.6.1.4.1.54373.1.1.5.1.1.1.8'), new OctetString('Major')))
         trap.add(new VariableBinding(new OID('1.3.6.1.4.1.54373.1.1.5.1.1.1.9'), new OctetString(Instant.now().toString())))
         exchange.getIn().setBody(trap)
+
+
+
     }
 }

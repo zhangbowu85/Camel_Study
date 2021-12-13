@@ -3,11 +3,12 @@
  */
 package bw.study.examples.camel
 
-
+import groovy.json.JsonOutput
 import groovy.util.logging.Slf4j
 import org.apache.camel.CamelContext
 import org.apache.camel.Exchange
 import org.apache.camel.builder.RouteBuilder
+import org.apache.camel.component.jetty.JettyHttpComponent
 import org.apache.camel.impl.DefaultCamelContext
 import java.time.Instant
 
@@ -23,22 +24,31 @@ class JettyServer {
             it.setTimeout(1)
         }
         camel.getGlobalOptions().put(Exchange.LOG_EIP_NAME, "bw.study.examples")
+        JettyHttpComponent jettyComponent = camel.getComponent("jetty", JettyHttpComponent.class);
+        jettyComponent.setSslContextParameters(MySSLContext.initServerSSLContext());
+
         RouteBuilder.addRoutes(camel, {
             it
-            .from("jetty:http://0.0.0.0:18080/bw/test/example")
+            .from("jetty:https://0.0.0.0:18080/bw/test/example")
             .routeId('jetty.service')
             .convertBodyTo(java.lang.String)
             .to("log:bw.study.examples?showAll=true&multiline=true")
             .process {
                 it.in.headers['CamelFileName'] = 'msg-' + Instant.now().getEpochSecond() + '.txt'            }
             //.setHeader('CamelFileName').simple("msg-${date:now:yyyyMMddHHmmssSSS}.txt")
-            .to("file:build/tmp/receivedMessages?charset=utf-8")
+            //.to("file:build/tmp/receivedMessages?charset=utf-8")
+            .transform()
+            .exchange {
+                it.in.headers.put(Exchange.HTTP_RESPONSE_CODE, 200)
+                it.in.body = JsonOutput.toJson(['result' : 'success'])
+            }
+
         })
         camel.addShutdownHook {
             System.out.println('Camel exit!')
         }
         camel.start()
-        Thread.sleep(300000)
+        Thread.sleep(60 * 60 * 1000)
         camel.stop()
     }
 }
