@@ -26,6 +26,9 @@ class JettyServer {
         camel.getGlobalOptions().put(Exchange.LOG_EIP_NAME, "bw.study.examples")
         JettyHttpComponent jettyComponent = camel.getComponent("jetty", JettyHttpComponent.class);
         jettyComponent.setSslContextParameters(MySSLContext.initServerSSLContext());
+        jettyComponent.setSslSocketConnectorProperties([
+                'needClientAuth' : "true",
+        ])
 
         RouteBuilder.addRoutes(camel, {
             it
