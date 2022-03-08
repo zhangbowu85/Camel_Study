@@ -5,17 +5,11 @@ package bw.study.examples.camel
 
 import groovy.util.logging.Slf4j
 import org.apache.camel.CamelContext
-import org.apache.camel.Endpoint
 import org.apache.camel.Exchange
-import org.apache.camel.ExchangePattern
 import org.apache.camel.builder.RouteBuilder
-import org.apache.camel.component.snmp.SnmpComponent
-import org.apache.camel.component.snmp.SnmpEndpoint
 import org.apache.camel.impl.DefaultCamelContext
-import org.apache.camel.builder.EndpointProducerBuilder
 import org.snmp4j.PDU
 import org.snmp4j.mp.SnmpConstants
-import org.apache.camel.component.snmp.SnmpTrapProducer
 import org.snmp4j.smi.OID
 import org.snmp4j.smi.OctetString
 import org.snmp4j.smi.VariableBinding
@@ -38,11 +32,11 @@ class SnmpAgent {
             PDUMarshaller pduMarshaller = new PDUMarshaller()
             @Override
             void configure() throws Exception {
-                from("timer:sendTrap?delay=1000&period=500&repeatCount=1")
+                from("timer:sendTrap?delay=1000&repeatCount=1")
                         .routeId('snmp.trap.listener')
                         .process {
                             PDU trap = new PDU()
-                            trap.setType(PDU.SET);
+                            trap.setType(PDU.TRAP);
                             trap.add(new VariableBinding(SnmpConstants.snmpTrapOID, new OID('1.3.6.1.4.1.54373.1.1.5.1.1.1')))
                             trap.add(new VariableBinding(new OID('1.3.6.1.4.1.54373.1.1.5.1.1.1.1'), new OctetString('localhost')))
                             trap.add(new VariableBinding(new OID('1.3.6.1.4.1.54373.1.1.5.1.1.1.2'), new OctetString('Test')))
@@ -56,10 +50,12 @@ class SnmpAgent {
                             it.getIn().setBody(trap)
                         }
                         .to("log:bw.study.examples?showAll=true&multiline=true")
+                        .convertBodyTo(String)
+                        .to("log:bw.study.examples?showAll=true&multiline=true")
                         .to("snmp:10.47.112.135:10162?protocol=tcp&type=TRAP" +
                                 "&snmpVersion=${SnmpConstants.version2c}"  +
                                 "&timeout=5000" +
-                                "&retries=5")
+                                "&retries=5&securityLevel=1&sendEmptyMessageWhenIdle=true&lazyStartProducer=true")
 
                         .to("log:bw.study.examples?showAll=true&multiline=true")
             }
@@ -72,7 +68,6 @@ class SnmpAgent {
         System.out.println("Camel Started : ${Instant.now().toString()}")
         Thread.sleep(600000)
         camel.stop()
-
     }
 
 }

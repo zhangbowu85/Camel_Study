@@ -1,17 +1,18 @@
 package bw.study.examples.camel
 
-import org.jsmiparser.parser.SmiDefaultParser
-import org.jsmiparser.smi.SmiMib
-import org.jsmiparser.util.url.FileURLListFactory
-import sun.net.www.protocol.file.FileURLConnection
+import org.wintersleep.snmp.mib.parser.SmiDefaultParser
+import org.wintersleep.snmp.mib.phase.file.FileParserPhase
+import org.wintersleep.snmp.mib.smi.SmiMib
+import org.wintersleep.snmp.util.url.FileURLListFactory
 
 class MibDB {
 
     public static void main(args) {
 
         SmiDefaultParser parser = new SmiDefaultParser()
+        parser.setFailOnError(false)
 
-        String[] mibDirs = ['/tmp/upm_mibs/iana', '/tmp/upm_mibs/ietf', '/tmp/upm_mibs/samsung']
+        String[] mibDirs = ['c:/mibtest/iana', 'c:/mibtest/ietf', 'c:/mibtest/cardinality-upm', 'c:/mibtest/samsung']
         List<URL> mibLibUrls = new LinkedList<URL>()
         mibDirs.each {
             File dir = new File(it)
@@ -25,16 +26,16 @@ class MibDB {
             mibLibUrls.addAll(urlListFactory.create())
         }
         System.out.println(mibLibUrls.toString())
-        parser.setFailOnError(false)
+        parser.setFailOnError(true)
         parser.getFileParserPhase().setInputUrls(mibLibUrls)
         SmiMib mib = parser.parse()
 
         if (mib != null) {
             System.out.println('Succeed')
-            mib.getColumns().each {
-                if (it.oidStr.contains('236')) {
-                    System.out.println("${it.oidStr}, ${it.type}, ${it.toString()}")
-                }
+            mib.getColumns().findAll({
+               it.getOidStr().contains('Cardinality') || it.getOidStr().contains('SAMSUNG') || true
+            }).each {
+                System.out.println("${it.oidStr}, ${it.type}, ${it.toString()}")
             }
         } else {
             System.out.println("Failed to load mibs.")

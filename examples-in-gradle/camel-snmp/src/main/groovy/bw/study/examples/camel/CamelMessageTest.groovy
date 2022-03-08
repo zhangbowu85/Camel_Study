@@ -6,13 +6,13 @@ package bw.study.examples.camel
 import groovy.util.logging.Slf4j
 import org.apache.camel.CamelContext
 import org.apache.camel.Exchange
+import org.apache.camel.ProducerTemplate
 import org.apache.camel.builder.RouteBuilder
 import org.apache.camel.impl.DefaultCamelContext
-
-import java.time.Instant
+import org.apache.camel.impl.engine.DefaultStreamCachingStrategy
 
 @Slf4j
-class SnmpManager {
+class CamelMessageTest {
 
     static void main(String[] args) {
         System.out.println('This is an example of SNMP Trap Listener')
@@ -22,21 +22,30 @@ class SnmpManager {
             it.setShutdownNowOnTimeout(true)
             it.setTimeout(1)
         }
+        camel.allowUseOriginalMessage = true
+        camel.streamCachingStrategy = new DefaultStreamCachingStrategy(spoolThreshold: -1)
         camel.getGlobalOptions().put(Exchange.LOG_EIP_NAME, "bw.study.examples");
         RouteBuilder.addRoutes(camel, {
             it
-                    .from("snmp:0.0.0.0:10162?protocol=tcp&type=TRAP&snmpVersion=1&securityLevel=1")
-                    .routeId('snmp.trap.listener')
+                    .from('jetty:http://0.0.0.0:8080/test')
+                    .routeId('direct.test')
+                    .to("log:bw.study.examples?showAll=true&multiline=true&showStreams=true")
+                    .process {
+                       it.in.setHeader('test', 'stream')
+                    }
+                    .convertBodyTo(String)
                     .to("log:bw.study.examples?showAll=true&multiline=true")
-            .process {
-                sleep(1000)
-            }
+                    .process {
+                        sleep(1000)
+                    }
         })
         camel.addShutdownHook {
             System.out.println('Exiting')
         }
         camel.start()
-        Thread.sleep(3600000)
+        ProducerTemplate producerTemplate = camel.createProducerTemplate()
+        producerTemplate.sendBody('http://localhost:8080/test',"My Test body")
+        Thread.sleep(1 * 60 * 1000)
         camel.stop()
     }
 
